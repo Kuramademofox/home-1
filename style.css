@@ -294,16 +294,18 @@ body {
   }
 
 
-  .explore-section {
-    padding: 20px;
-  }
+.explore-section {
+  padding: 20px;
+  margin-top: 80px; /* Add this line */
+}
 
-  .explore-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
+.explore-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 
   .explore-header p {
     font-size: 24px;
@@ -1395,7 +1397,7 @@ body {
         position: relative;
         height: 600px; 
         width: 1685px;
-        top: 10;
+        top: 80px;
 
     }
 
