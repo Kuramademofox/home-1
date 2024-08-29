@@ -1,23 +1,30 @@
+:root {
+  --primary-color: #3BB77E;
+  --secondary-color: #DEF9EC;
+  --font-main: "Quicksand", sans-serif;
+  --text-color: #000000;
+}
 
 body {
-    margin: 0;
-    font-family: "Quicksand", sans-serif;
-    box-sizing: border-box;
+  margin: 0;
+  font-family: var(--font-main);
+  box-sizing: border-box;
+}
 
-  }
+p {
+  font-family: var(--font-main);
+  color: white;
+  font-size: 12px;
+  margin-left: 5px;
+}
 
-  p {
-    font-family: "Quicksand", sans-serif;
-    color: white;
-    font-size: 12px;
-    margin-left: 5px;
-  }
+input,
+button {
+  font-family: var(--font-main);
+}
 
-  input, button {
-    font-family: "Quicksand", sans-serif;
-  }
 .header {
-  background-color: #3BB77E;
+  background-color: var(--primary-color);
   padding: 20px;
   display: flex;
   align-items: center;
@@ -29,77 +36,165 @@ body {
   z-index: 1000;
 }
 
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
 
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
 
-  .logo {
-    display: flex;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-  }
+/* Search Bar Container */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Make it responsive */
+  max-width: 900px; /* Maximum width for larger screens */
+  margin: 0 20px;
+}
 
-  .logo img {
-    height: 40px;
-    margin-right: 10px;
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  border: 1px solid #ccc; /* Optional: For better visibility of the search bar */
+}
+
+.search-bar select,
+.search-bar input {
+  height: 36px; /* Slightly reduce the height for a smaller look */
+  border: none;
+  padding: 0 8px; /* Reduce padding */
+}
+
+.search-bar select {
+  margin-right: -1px;
+  /* Slight overlap to connect input and select */
+}
+
+.search-bar input {
+  flex: 1;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px; /* Adjust spacing if needed */
+}
+
+/* Icons */
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icons img {
+  margin: 0 10px;
+  cursor: pointer;
+  height: 30px;
+  width: 28px;
+}
+
+.profile-icon img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  /* Adjust header padding and layout for tablets */
+  .header {
+    padding: 15px;
+    flex-wrap: wrap; /* Allow items to wrap onto new lines */
   }
 
   .search-bar-container {
-    display: flex;
-    align-items: center;
-    width: 900px; /* Adjust this value to make the container smaller */
-    margin: 0 20px;
+    max-width: 600px; /* Reduce width on tablets */
+    margin: 10px 0;
   }
 
-  .search-bar {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    border: 1px solid #ccc; /* Optional: For better visibility of the search bar */
+  .icons img {
+    height: 28px;
+    width: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjust header layout for mobile devices */
+  .header {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the left */
+    padding: 10px;
+  }
+
+  .logo {
+    margin-bottom: 10px; /* Add spacing between elements */
+  }
+
+  .search-bar-container {
+    width: 100%; /* Full width on mobile */
+    margin: 10px 0;
   }
 
   .search-bar select,
   .search-bar input {
-    height: 36px; /* Slightly reduce the height for a smaller look */
-    border: none;
-    padding: 0 8px; /* Reduce padding */
-  }
-
-  .search-bar select {
-    margin-right: -1px;
-    /* Slight overlap to connect input and select */
-  }
-
-  .search-bar input {
-    flex: 1;
-  }
-
-  .search-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 10px; /* Adjust spacing if needed */
+    height: 30px; /* Further reduce height on smaller screens */
   }
 
   .icons {
-    display: flex;
-    align-items: center;
+    margin-top: 10px; /* Add margin on top for spacing */
   }
 
   .icons img {
-
-    margin: 0 10px;
-    cursor: pointer;
-    height: 30px;
-    width: 28px;
+    height: 24px;
+    width: 22px;
+    margin: 0 5px; /* Reduce space between icons */
   }
 
   .profile-icon img {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-
+    height: 35px;
+    width: 35px;
   }
+}
+
+@media (max-width: 480px) {
+  /* Styles for very small screens */
+  .header {
+    padding: 5px;
+  }
+
+  .search-bar-container {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .search-bar select,
+  .search-bar input {
+    font-size: 14px; /* Smaller font size for inputs */
+    padding: 0 5px; /* Less padding */
+  }
+
+  .icons img {
+    height: 20px;
+    width: 18px;
+    margin: 0 3px;
+  }
+
+  .profile-icon img {
+    height: 30px;
+    width: 30px;
+  }
+}
+
 
 
   #navbar {
@@ -272,26 +367,26 @@ body {
   }
 
 
-  @media only screen and (max-width: 600px) {
-    #navbar {
-        padding: 10px 20px;
-    }
-    .navbar-item {
-        margin-left: 20px;
-    }
-    .navbar-item-left {
-        flex-grow: 0;
-    }
-    .search-container {
-        margin-left: 20px;
-    }
-    .search-container input {
-        width: 150px;
-    }
-    .navbar-right.navbar-item {
-        margin-right: 20px;
-    }
+@media only screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    cursor: pointer;
   }
+
+  .navbar {
+    display: none; /* Hide the full navbar on small screens */
+  }
+
+  .menu-icon.active + .navbar {
+    display: flex; /* Show the navbar when the icon is clicked */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    background-color: var(--primary-color);
+  }
+}
+
 
 
 .explore-section {
@@ -375,6 +470,21 @@ body {
     font-size: 14px;
     color: #666;
   }
+.category-list {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.category-list::-webkit-scrollbar {
+  height: 6px;
+}
+
+.category-list::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
 
   .featured-section, .daily-best-sells {
     padding: 20px;
@@ -1386,7 +1496,7 @@ body {
         scroll-behavior: smooth;
     }
     .hero-section {
-        background-image: url('assets/independence\ @home.png');
+        background-image: url('assets/bg-home.png');
         background-color: #FFFCEB;
         margin-top: 60px;
         background-size: cover;
@@ -1397,7 +1507,7 @@ body {
         position: relative;
         height: 600px; 
         width: 1685px;
-        top: 80px;
+        
 
     }
 
@@ -1498,15 +1608,6 @@ body {
     position: relative;
   }
 
-  .offer-banner {
-    position: relative;
-    background-image: url('assets/opening\ offer.png'); /* Add your background image here */
-    background-repeat: no-repeat;
-    background-size: contain; /* Adjust this to cover or any other value based on your preference */
-    background-position: fit; /* Adjust this to your preference */;
-    padding: 75px;
-    text-align: center; /* Center the text within the banner */
-  }
 
   .offer-title {
     display: inline-block;
@@ -1621,3 +1722,117 @@ body {
   .star:hover ~ .star {
     color: #FFD700; /* Gold color for selected or hovered stars */
   }
+/* General Reset */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  font-size: 14px;
+}
+
+/* Cookie Consent Card Styling */
+.cookies-card {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  width: 350px;
+  background-image: url('assets/hero\ bg.png' ); /* Add background image */
+  background-size: cover; /* Ensure the image covers the entire card */
+  background-position: center; /* Center the image */
+  color: #000; /* Change font color to black */
+  padding: 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  cursor: cursor; /* Change cursor to indicate draggable */
+}
+
+.cookies-card.show {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Moves into view */
+}
+
+/* Rest of the styles remain unchanged */
+
+
+/* Close Button for the Card */
+.cookies-card .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: #000; /* Change font color to black */
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: color 1.9s ease;
+}
+
+/* Close Button Hover Effect */
+.cookies-card .close-btn:hover {
+  color: #ff6666; /* Changes color on hover */
+}
+
+/* Title Styling */
+.title {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  letter-spacing: 0.4px;
+  color: #3BB77E; /* Change font color to #3BB77E */
+  text-align: center; /* Center the "We Use Cookies" heading */
+}
+
+/* Info Text Styling */
+.info {
+  line-height: 1.4em;
+  letter-spacing: 0.4px;
+  color: #000; /* Font color set to black */
+}
+
+
+/* Call to Action Button Styling */
+.cta {
+  border: none;
+  outline: none;
+  padding: 0.8em 1.5em; /* Corrected padding format */
+  background-color: #3BB77E;
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Corrected property name */
+}
+
+.cta:hover {
+  background-color: #228B22;
+}
+
+/* Link Styling */
+.a {
+  text-decoration: none;
+  border-bottom: 1px solid; /* Corrected border syntax */
+  padding-bottom: 4px;
+  transition: color 0.4s ease; /* Added transition effect */
+  color: #000; /* Change link color to black */
+}
+
+.a:hover {
+  color: #3BB77E;
+}
+
+/* Settings Link Styling */
+.a.settings {
+  color: #000;  /* Change settings link color to black */
+  border-bottom: none;
+  margin-left: 1em;
+}
