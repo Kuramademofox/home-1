@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Settings</title>
+  <link href="cookie-policy.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="cookie-settings">
+    <h2>Cookie Settings</h2>
+    <form id="cookie-settings-form">
+      <label>
+        <input type="checkbox" name="essential" checked disabled>
+        Essential Cookies (Required)
+      </label><br>
+      <label>
+        <input type="checkbox" name="performance" checked>
+        Performance Cookies
+      </label><br>
+      <label>
+        <input type="checkbox" name="functional">
+        Functional Cookies
+      </label><br>
+      <label>
+        <input type="checkbox" name="advertising">
+        Advertising Cookies
+      </label><br>
+      <label>
+        <input type="checkbox" name="social-media">
+        Social Media Cookies
+      </label><br>
+      <label>
+        <input type="checkbox" name="analytics">
+        Analytics Cookies
+      </label><br>
+      <button type="submit">Save Preferences</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('cookie-settings-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const preferences = {
+        essential: true, // Always enabled
+        performance: form.querySelector('input[name="performance"]').checked,
+        functional: form.querySelector('input[name="functional"]').checked,
+        advertising: form.querySelector('input[name="advertising"]').checked,
+        socialMedia: form.querySelector('input[name="social-media"]').checked,
+        analytics: form.querySelector('input[name="analytics"]').checked
+      };
+
+      localStorage.setItem('cookie-preferences', JSON.stringify(preferences));
+
+      alert('Your preferences have been saved');
+    });
+  </script>
+</body>
+</html>
