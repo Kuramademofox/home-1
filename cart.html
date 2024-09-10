@@ -8,85 +8,303 @@
     <title>Shopping Cart</title>
     <style>
         body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: #FFFFFF;
-            margin: 0;
-            padding: 0;
+          margin: 0;
+          font-family: "Quicksand", sans-serif;
+          box-sizing: border-box;
+
         }
 
+        p {
+          font-family: "Quicksand", sans-serif;
+          color: white;
+          font-size: 12px;
+          margin-left: 5px;
+        }
+
+        input, button {
+          font-family: "Quicksand", sans-serif;
+        }
         .header {
-            background-color: #3BB77E;
-            padding: 10px 20px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+          background-color: #3BB77E;
+          padding: 20px;
+
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
         }
+
         .logo {
-            display: flex;
-            align-items: center;
+          display: flex;
+          align-items: center;
+          color: white;
+          font-weight: bold;
         }
+
         .logo img {
-            height: 40px;
-            margin-right: 10px;
+          height: 40px;
+          margin-right: 10px;
         }
+
         .search-bar-container {
-            display: flex;
-            align-items: center;
-            flex: 1;
-            margin: 0 20px;
-            max-width: 500px; /* Restrict maximum width */
+          display: flex;
+          align-items: center;
+          width: 900px; /* Adjust this value to make the container smaller */
+          margin: 0 20px;
         }
 
         .search-bar {
-            display: flex;
-            align-items: center;
-            width: 100%; /* Adjust width to fill available space */
+          display: flex;
+          align-items: center;
+          flex: 1;
+          border: 1px solid #ccc; /* Optional: For better visibility of the search bar */
         }
-        .search-bar select, .search-bar input {
-            height: 30px;
-            border: none;
-            padding: 0 10px;
-        }
-        .search-bar select {
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-            margin-right: -1px;
-        }
+
+        .search-bar select,
         .search-bar input {
-            flex: 1;
-            border-radius: 5px;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
+          height: 36px; /* Slightly reduce the height for a smaller look */
+          border: none;
+          padding: 0 8px; /* Reduce padding */
         }
-        .search-icon img {
-            height: 25px;
-            cursor: pointer;
+
+        .search-bar select {
+          margin-right: -1px;
+          /* Slight overlap to connect input and select */
         }
+
+        .search-bar input {
+          flex: 1;
+        }
+
+        .search-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-left: 10px; /* Adjust spacing if needed */
+        }
+
         .icons {
-            display: flex;
-            align-items: center;
+          display: flex;
+          align-items: center;
         }
+
         .icons img {
-            height: 25px;
-            margin: 0 10px;
-            cursor: pointer;
+
+          margin: 0 10px;
+          cursor: pointer;
+          height: 30px;
+          width: 28px;
         }
+
         .profile-icon img {
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
+          cursor: pointer;
+
         }
+
+
+        #navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 17px 40px;
+          width: 100%;
+          height: 50px;
+          background-color: #3BB77E;
+          border: 0px solid #FFFFFF;
+          backdrop-filter: blur(15px);
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1000;
+        }
+
+        .navbar-item {
+          display: flex;
+          align-items: center;
+          position: relative;
+        }
+
+        .navbar-item img {
+          width: 40px;
+          height: 40px;
+          margin-right: 10px;
+        }
+
+        .navbar-item h1 {
+          margin: 0;
+          font-size: 22px;
+          color: #ffffff;
+          white-space: nowrap;
+        }
+
+        .search-container {
+          display: flex;
+          align-items: center;
+          background-color: #F3F3F3;
+          padding: 5px 10px;
+          margin-left: 60px;
+        }
+
+        .all-products-dropdown {
+          display: flex;
+          align-items: center;
+          color: black;
+          width: 200px;
+          height: 20px;
+          font-size: 12px;
+          margin-right: 5px;
+          justify-content: space-between;
+        }
+
+        .all-products-dropdown .fas.fa-bars {
+          margin-right: 15px;
+        }
+
+        .all-products-dropdown .fas.fa-chevron-down {
+          margin-left: auto;
+        }
+
+        .separator {
+          margin: 0 5px;
+          color: black;
+        }
+
+        .search-input-container {
+          background-color: #F3F3F3;
+          position: relative;
+          width: 400px;
+        }
+
+        #search-input {
+          background-color: #F3F3F3;
+          width: 100%;
+          padding: 5px;
+          font-family: "Quicksand", sans-serif;
+          font-size: 12px;
+          border: none;
+          margin-left: 5px;
+        }
+
+        .search-button {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 5px;
+          margin-left: 15px; 
+        }
+
+        .search-button i {
+          font-size: 16px;
+          color: black;
+        }
+
+        .search-button:hover {
+          background-color: #f2f2f2;
+        }
+
+        .icon {
+          font-size: 18px;
+          cursor: pointer;
+          color: white;
+          margin-left: 20px;
+        }
+
+        .navbar-item a {
+          font-size: 12px;
+          color: #3BB77E;
+          text-decoration: none;
+          margin-left: 5px;
+        }
+
+        .navbar-right {
+          display: flex;
+          align-items: center;
+        }
+
+        .navbar-right.navbar-item {
+          color: #3BB77E;
+          margin-right: 150px;
+          gap: 10px;
+        }
+
+        .dropdown {
+          position: relative;
+        }
+
+        .dropdown-icon {
+          margin-left: 5px;
+          font-size: 10px;
+          color: #000000;
+          cursor: pointer;
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: white;
+          color: black;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          padding: 12px 16px;
+          z-index: 1;
+          top: 100%;
+          left: 0;
+        }
+
+        .dropdown-content a {
+          color: black;
+          padding: 8px 16px;
+          text-decoration: none;
+          display: block;
+        }
+
+        .dropdown-content a:hover {
+          background-color: #575757;
+          color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+
+        .dropdown:hover .all-products-dropdown {
+          color: black;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+          #navbar {
+              padding: 10px 20px;
+          }
+          .navbar-item {
+              margin-left: 20px;
+          }
+          .navbar-item-left {
+              flex-grow: 0;
+          }
+          .search-container {
+              margin-left: 20px;
+          }
+          .search-container input {
+              width: 150px;
+          }
+          .navbar-right.navbar-item {
+              margin-right: 20px;
+          }
+        }
+
         .background {
-            background-image: url(assets/images/veggies.jpeg); 
+            background-image: url(assets/support\ bg.png); 
             background-size: cover;
             background-position: center;
             padding: 80px 0;
             text-align: left;
             color: #333;
-                        
+
         }
-        
+
         .breadcrumbs {
             font-size: 14px;
             color: #666;
@@ -99,8 +317,8 @@
             margin: 10px 0;
             text-align: center;
         }
-        
-        
+
+
         .cart-container {
             width: 50%;
             margin: 20px 0;
@@ -113,7 +331,7 @@
         .table-box {
             padding: 20px;
             border: 1px solid #ddd;
-            
+
             border-radius: 8px;
             background-color: #fff;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -233,7 +451,7 @@
               transform: translateX(-20%)
         }
         .subscription {
-            background-image: url(assets/images/photo_2.png);
+            background-image: url(assets/newsletter\ background.png);
             background-size: cover;
             background-position: center;
             padding: 100px;
@@ -278,36 +496,46 @@
             background-color: #45a049;
         }
         .feature-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          text-align: center;
+          padding: 20px;
         }
         .feature {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            max-width: 300px;
-            text-align: left;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          max-width: 300px;
+          text-align: left;
+          background-color: #ffffff; /* Add a light gray background */
         }
-        .feature img {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
+
+
+        .feature { 
+          display: flex; 
+          flex-direction: row; 
+          align-items: center; 
+          max-width: 300px; 
+          text-align: left; 
         }
-        .feature h3 {
-            font-size: 20px;
-            margin: 10px 0;
+
+        .feature img { 
+          width: 50px; 
+          height: 50px; 
+          margin-right: 10px; 
         }
-        footer {
-            background-color: #ffffff;
-            padding: 40px 20px;
-            border-top: 1px solid #ccc;
-            font-family: Arial, sans-serif;
-            color: #000;
-            margin-top: auto;
+
+        .feature h3 { 
+          font-size: 20px; 
+          margin: 10px 0; 
         }
+
+        .feature p { 
+          color: #000; 
+        }
+
+
         .footer-top {
             background: rgba(255, 255, 255, 1);
             display: flex;
@@ -361,9 +589,9 @@
 ;
         }
 
-      
 
-      
+
+
         @media (max-width: 498px) {
             .search-bar-container {
                 flex-direction: column;
@@ -427,18 +655,25 @@
             .social-links a:hover {
                 color: #2F9D68; 
             }
-
+           
 
         }
 
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <div id="above-bar"></div>
+    <div id="bottom-bar"></div>
+
     <div class="header">
         <div class="logo">
-            <a href="home.html">
-                <img src="assets/images/logo2.jpeg" alt="Logo" style="border-radius: 100px;">
+            <a href="index.html">
+              <img src="assets/drop logo.jpg" alt="Logo" style="border-radius: 100px;">
             </a>
+
+
+
             <div class="location">
                 <i class="fa-solid fa-location-dot" style="color: #fff; font-size: 14px;"></i>
                 <span id="location-text">Your Location</span>
@@ -448,30 +683,34 @@
         <div class="search-bar-container">
             <div class="search-bar">
                 <select>
-                    <option>All Categories</option>
-                    <option>Vegetables</option>
-                    <option>Fruits</option>
-                    <option>Dairy</option>
+                    <option><a href="allcategories.html">All Categories</a></option>
+                      <option><a href="ve">Vegetables</a></option>
+                      <option><a href="#">Fruits</a></option>
+                      <option><a href="#">Dairy</a></option>
+                      <option><a href="#">More</a></option>
+
                 </select>
                 <input type="text" placeholder="Search for products...">
             </div>
             <div class="search-icon">
-                <img src="assets/images/Search-btn.png" alt="Search">
+                <img src="assets/Search-btn.png" alt="Search">
             </div>
         </div>
 
         <div class="icons">
-            <a href="wishlist2.html">
-            <img src="assets/images/Wishlist-1.png" alt="Wishlist">
-            </a>
-            <a href="cart.html">
-            <img src="assets/images/Cart-1.png" alt="Cart">
-            </a>
-            <div class="profile-icon">
-                <img src="assets/images/Profile.png" alt="Profile">
+              <a href="wishlist.html"><img src="assets/Wishlist-1.png" alt="Wishlist">
+              </a>
+              <a href="cart.html"><img src="assets/Cart-1.png" alt="Cart">
+              </a>
+              <div class="profile-icon">
+                <a href="signup.html">
+                  <img src="assets/Profile.png" alt="Profile">
+                </a>
+
             </div>
         </div>
     </div>
+
     <script src="script.js"></script>
     <div class="background">
         <h1 class="breadcrumbs">Home / Shopping Cart</h1>
@@ -491,7 +730,7 @@
         <tbody>
             <tr>
                 <td>
-                    <img src="assets/images/apple.jpg" alt="Product 1">
+                    <img src="assets/apple.png" alt="Product 1">
                     apple
                 </td>
                 <td> ₹.10.00</td>
@@ -507,7 +746,7 @@
             </tr>
             <tr>
                 <td>
-                    <img src="assets/images/apple.jpg" alt="Product 1">
+                    <img src="assets/apple.webp" alt="Product 1">
                     apple
                 </td>
                 <td> ₹.10.00</td>
@@ -524,97 +763,112 @@
             <!-- Repeat rows as necessary -->
         </tbody>
     </table>
-    
+
     <div class="buttons">
         <button class="btn btn-clear">Back to Home</button>
         <button class="btn btn-proceed">Proceed to Checkout</button>
     </div>
 
-    <div class="subscription">
-          <h2>Subscribe to our Newsletter</h2>
-          <form action="#" method="post">
-              <input type="email" name="email" placeholder="Your Email Address" required>
-              <button type="submit">Subscribe</button>
-          </form>
-        </div>
-        <div class="feature-container">
-          <div class="feature">
-              <img src="assets/images/Best Prices & Deals.png" alt="Deals">
-              <div>
-                  <h3>Best Prices & Deals</h3>
-                  <p>Don't miss our daily amazing deals and prices</p>
-              </div>
-          </div>
-          <div class="feature">
-              <img src="assets/images/Refundable.png" alt="Refund">
-              <div>
-                  <h3>Refundable</h3>
-                  <p>If your items have damage we agree to refund it</p>
-              </div>
-          </div>
-          <div class="feature">
-              <img src="assets/images/Free delivery.png" alt="Free Delivery">
-              <div>
-                  <h3>Free Delivery</h3>
-                  <p>Do purchase over ₹50 and get free delivery anywhere</p>
-              </div>
-          </div>
-        </div>
-        </div>
-        <footer>
-        <div class="footer-top">
-          <div>
-              <h4>Drop It</h4>
-              <img src="assets/images/logo2.jpeg" alt="Logo" style="width: 30px; height:30px;">
-              
-              <ul>
-                  <li><a href="#">Company Information</a></li>
-                  <li><a href="#">Careers</a></li>
-                  <li><a href="#">Store Locations</a></li>
-                  <li><a href="#">Affiliate Program</a></li>
-              </ul>
-          </div>
-          <div>
-              <h4>Customer Service</h4>
-              <ul>
-                  <li><a href="#">Contact Us</a></li>
-                  <li><a href="#">Order Tracking</a></li>
-                  <li><a href="#">Returns & Exchanges</a></li>
-                  <li><a href="#">Shipping & Delivery</a></li>
-              </ul>
-          </div>
-          <div>
-              <h4>Quick Links</h4>
-              <ul>
-                  <li><a href="#">New Arrivals</a></li>
-                  <li><a href="#">Best Sellers</a></li>
-                  <li><a href="#">Special Offers</a></li>
-                  <li><a href="#">Gift Cards</a></li>
-              </ul>
-          </div>
-          <div>
-              <h4>Help Center</h4>
-              <ul>
-                  <li><a href="#">Payments</a></li>
-                  <li><a href="#">Refund</a></li>
-                  <li><a href="#">Checkout</a></li>
-                  <li><a href="#">Q&A</a></li>
-                  <li><a href="#">Privacy Policy</a></li>                
-              </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <div style="display: flex; align-items: center;">
-              <p>&copy; 2024 Grocery Mart. All rights reserved. | <a href="#">Privacy Policy</a></p>
+            <div class="subscription">
+                <h2><strong>subscribe to our Newsletter</strong></h2>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Your Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
 
-          </div>
-          <div class="social-links1">
-              <a href="#" class="twittericon"><i class="fab fa-facebook-f" ></i></a>
-              <a href="#" class="twittericon"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="twittericon"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="twittericon"><i class="fab fa-linkedin-in" ></i></a>
-          </div>
-        </div>
-        </footer>
+            <div class="feature-container">
+                <div class="feature">
+                    <img src="assets/Best Prices & Deals.png" alt="Deals">
+                    <div>
+                        <h3>Best Prices & Deals</h3>
+                        <p>Don't miss our daily amazing deals and prices</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <img src="assets/Refundable.png" alt="Refund">
+                    <div>
+                        <h3>Refundable</h3>
+                        <p>If your items have damage we agree to refund it</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <img src="assets/Free delivery.png" alt="Free Delivery">
+                    <div>
+                        <h3>Free Delivery</h3>
+                        <p>Do purchase over ₹150 and get free delivery anywhere</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <div class="footer-top">
+                    <div class="contact-info">
+                   <div>
+                           <div style="display: flex; align-items: center;">
+                               <img src="assets/drop logo.jpg" alt="Logo" style="width: 30px; height: 30px; margin-right: 10px;">
+                               <h4 style="margin: 0;">Drop It</h4>
+                           </div>
+                           <ul style="list-style-type: none; padding: 0;">
+                               <li>
+                                   <i class="fas fa-map-marker-alt" style="margin-right: 10px; color: #3BB77E;"></i>
+                                   <a href="#">Address</a>
+                               </li>
+                               <li>
+                                   <i class="fas fa-phone" style="margin-right: 10px; color: #3BB77E;"></i>
+                                   <a href="#">Call us</a>
+                               </li>
+                               <li>
+                                   <i class="fas fa-envelope" style="margin-right: 10px; color: #3BB77E;"></i>
+                                   <a href="#">Email</a>
+                               </li>
+                               <li>
+                                   <i class="fas fa-clock" style="margin-right: 10px; color: #3BB77E;"></i></i>
+                                   <a href="#">Work Hours</a>
+                               </li>
+                           </ul>
+
+                       </ul>
+                   </div>
+                   </div>
+                   <div class="footer-content">
+                       <h4>Account</h4>
+                       <ul>
+                           <li><a href="#">Wishlist</a></li>
+                           <li><a href="#">Cart</a></li>
+                           <li><a href="#">Shipping & Delivery</a></li>
+                       </ul>
+                   </div>
+                   <div class="footer-content">
+                       <h4>Useful Links</h4>
+                       <ul>
+                           <li><a href="#">About Us</a></li>
+                           <li><a href="#">Contact</a></li>
+                           <li><a href="#">Hot Deals</a></li>
+                       </ul>
+                   </div>
+                   <div class="footer-content">
+                       <h4>Help Center</h4>
+                       <ul>
+                           <li><a href="#">Payments</a></li>
+                           <li><a href="#">Refund</a></li>
+                           <li><a href="#">Q&A</a></li>
+                           <li><a href="https://privacy-policy-77pz.onrender.com/">Privacy Policy</a></li>                
+                       </ul>
+                   </div>
+               </div>
+                <div class="footer-bottom">
+                    <div style="display: flex; align-items: center;">
+                        <p style="color: black;">&copy; 2024 Grocery Mart. All rights reserved. | <a href="https://privacy-policy-77pz.onrender.com/">Privacy Policy</a></p>
+
+                    </div>
+                    <div class="social-links1">
+                        <a href="#" class="twittericon" style=""><i class="fab fa-facebook-f" ></i></a>
+                        <a href="#" class="twittericon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/_drop_itt/" class="twittericon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="twittericon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </footer>
 </body>
 </html>
